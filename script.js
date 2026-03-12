@@ -108,7 +108,7 @@ function drawLines(){
 })();
 
 /* ---- TYPEWRITER ---- */
-const phrases = ['web applications.','ML pipelines.','secure backends.','data solutions.','scalable systems.','clean APIs.'];
+const phrases = ['actionable insights.','data stories.','smart dashboards.','predictive models.','clean visualisations.','data-driven decisions.'];
 let pi=0,ci=0,del=false;
 const tw = document.getElementById('twWord');
 function type(){
