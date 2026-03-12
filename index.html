@@ -1,438 +1,658 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inam Khan - Full Stack Developer & ML Enthusiast</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inam Khan — Full Stack Developer & ML Engineer</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="nav-wrapper">
-                <div class="logo">
-                    <span class="logo-text">IK</span>
-                </div>
-                <button class="menu-toggle" id="menuToggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-                <ul class="nav-menu" id="navMenu">
-                    <li><a href="#home" class="nav-link">Home</a></li>
-                    <li><a href="#about" class="nav-link">About</a></li>
-                    <li><a href="#skills" class="nav-link">Skills</a></li>
-                    <li><a href="#projects" class="nav-link">Projects</a></li>
-                    <li><a href="#education" class="nav-link">Education</a></li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
-                </ul>
-            </div>
+
+<!-- ░░ NOISE OVERLAY ░░ -->
+<div class="noise"></div>
+
+<!-- ░░ CUSTOM CURSOR ░░ -->
+<div id="cursorDot"></div>
+<div id="cursorRing"></div>
+
+<!-- ░░ PROGRESS BAR ░░ -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- ░░ PRELOADER ░░ -->
+<div class="preloader" id="preloader">
+  <div class="pre-content">
+    <svg class="pre-logo" viewBox="0 0 100 100">
+      <circle class="pre-circle" cx="50" cy="50" r="45"/>
+      <text class="pre-text" x="50" y="63" text-anchor="middle">IK</text>
+    </svg>
+    <div class="pre-bar"><div class="pre-bar-fill" id="preBarFill"></div></div>
+    <span class="pre-percent" id="prePercent">0%</span>
+  </div>
+</div>
+
+<!-- ░░ CANVAS ░░ -->
+<canvas id="bg-canvas"></canvas>
+
+<!-- ░░ NAV ░░ -->
+<nav class="nav" id="nav">
+  <div class="nav-wrap">
+    <a href="#home" class="nav-logo">
+      <span class="bracket">&lt;</span>IK<span class="bracket">/&gt;</span>
+    </a>
+    <div class="nav-center" id="navCenter">
+      <a href="#home"      class="nl">Home</a>
+      <a href="#about"     class="nl">About</a>
+      <a href="#skills"    class="nl">Skills</a>
+      <a href="#projects"  class="nl">Projects</a>
+      <a href="#education" class="nl">Education</a>
+      <a href="#contact"   class="nl">Contact</a>
+    </div>
+    <a href="mailto:inamwick01@gmail.com" class="nav-hire magnetic">Hire Me <i class="fas fa-bolt"></i></a>
+    <button class="burger" id="burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ░░░░░░░░░░░░  HERO  ░░░░░░░░░░░░ -->
+<section id="home" class="hero">
+  <div class="hero-grid-overlay"></div>
+
+  <!-- Orbs -->
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+
+  <div class="hero-wrap">
+    <div class="hero-left">
+      <!-- Available badge -->
+      <div class="avail-badge slide-up" style="--d:0.1s">
+        <span class="avail-dot"></span> Available for opportunities
+      </div>
+
+      <div class="hero-name-wrap slide-up" style="--d:0.25s">
+        <span class="hero-hi">Hi there, I'm</span>
+        <h1 class="hero-name">
+          <span class="char-reveal">Inam</span>
+          <span class="char-reveal accent-name"> Khan</span>
+        </h1>
+      </div>
+
+      <div class="typewriter-wrap slide-up" style="--d:0.4s">
+        <span class="tw-prefix">I craft</span>
+        <span class="tw-word" id="twWord"></span>
+        <span class="tw-cursor">|</span>
+      </div>
+
+      <p class="hero-sub slide-up" style="--d:0.55s">
+        Full‑stack engineer &amp; ML practitioner building scalable systems, intelligent pipelines, and pixel‑perfect interfaces that ship to production.
+      </p>
+
+      <div class="hero-btns slide-up" style="--d:0.7s">
+        <a href="#projects" class="btn-primary magnetic">
+          <span>View Work</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+        <a href="#contact" class="btn-ghost magnetic">
+          <i class="fas fa-paper-plane"></i>
+          <span>Contact</span>
+        </a>
+      </div>
+
+      <div class="hero-pills slide-up" style="--d:0.85s">
+        <a href="https://github.com/inam0980" target="_blank" class="pill magnetic"><i class="fab fa-github"></i> GitHub</a>
+        <a href="https://www.linkedin.com/in/inam-khan1/" target="_blank" class="pill magnetic"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        <a href="mailto:inamwick01@gmail.com" class="pill magnetic"><i class="fas fa-envelope"></i> Email</a>
+        <a href="tel:+918292931569" class="pill magnetic"><i class="fas fa-phone"></i> Call</a>
+      </div>
+    </div>
+
+    <div class="hero-right slide-up" style="--d:0.4s">
+      <div class="avatar-shell">
+        <!-- Rotating dashed rings -->
+        <div class="av-ring r1"></div>
+        <div class="av-ring r2"></div>
+        <div class="av-ring r3"></div>
+        <!-- Glow blob -->
+        <div class="av-glow"></div>
+        <!-- Avatar circle -->
+        <div class="av-circle">
+          <img src="inamp.jpg" alt="Inam Khan">
         </div>
-    </nav>
+        <!-- Floating chips -->
+        <div class="chip c1"><i class="fab fa-python"></i> Python</div>
+        <div class="chip c2"><i class="fas fa-database"></i> SQL</div>
+        <div class="chip c3"><i class="fab fa-js"></i> JS</div>
+        <div class="chip c4"><i class="fas fa-brain"></i> ML</div>
+        <div class="chip c5"><i class="fab fa-java"></i> Java</div>
+      </div>
+    </div>
+  </div>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="stars"></div>
-        <div class="container hero-content">
-            <div class="hero-text">
-                <h1 class="hero-title">
-                    <span class="highlight">Inam Khan</span>
-                </h1>
-                <p class="hero-subtitle">Full Stack Developer | ML Enthusiast | Problem Solver</p>
-                <p class="hero-description">
-                    Building scalable web applications and intelligent systems with passion for clean code and user experience
-                </p>
-                <div class="hero-buttons">
-                    <a href="#contact" class="btn btn-primary">Get In Touch</a>
-                    <a href="#projects" class="btn btn-secondary">View My Work</a>
-                </div>
-                <div class="social-links">
-                    <a href="https://www.linkedin.com/in/inam-khan1/" target="_blank" class="social-icon">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="https://github.com/inam0980" target="_blank" class="social-icon">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="mailto:inamwick01@gmail.com" class="social-icon">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                    <a href="tel:+918292931569" class="social-icon">
-                        <i class="fas fa-phone"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="hero-image">
-                <div class="image-placeholder">
-                    <i class="fas fa-user-circle"></i>
-                </div>
-            </div>
+  <div class="hero-scroll">
+    <div class="mouse-icon"><div class="mouse-dot"></div></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ░░░░░░░░░░░░  MARQUEE  ░░░░░░░░░░░░ -->
+<div class="marquee-strip">
+  <div class="marquee-track">
+    <span>Django</span><span>&#10022;</span>
+    <span>Python</span><span>&#10022;</span>
+    <span>Machine Learning</span><span>&#10022;</span>
+    <span>MySQL</span><span>&#10022;</span>
+    <span>JavaScript</span><span>&#10022;</span>
+    <span>Tailwind CSS</span><span>&#10022;</span>
+    <span>Scikit-learn</span><span>&#10022;</span>
+    <span>Java</span><span>&#10022;</span>
+    <span>Pandas</span><span>&#10022;</span>
+    <span>Power BI</span><span>&#10022;</span>
+    <span>C++</span><span>&#10022;</span>
+    <span>Streamlit</span><span>&#10022;</span>
+    <span>Django</span><span>&#10022;</span>
+    <span>Python</span><span>&#10022;</span>
+    <span>Machine Learning</span><span>&#10022;</span>
+    <span>MySQL</span><span>&#10022;</span>
+    <span>JavaScript</span><span>&#10022;</span>
+    <span>Tailwind CSS</span><span>&#10022;</span>
+    <span>Scikit-learn</span><span>&#10022;</span>
+    <span>Java</span><span>&#10022;</span>
+    <span>Pandas</span><span>&#10022;</span>
+    <span>Power BI</span><span>&#10022;</span>
+  </div>
+</div>
+
+<!-- ░░░░░░░░░░░░  ABOUT  ░░░░░░░░░░░░ -->
+<section id="about" class="section about">
+  <div class="container">
+    <div class="sec-tag reveal">WHO I AM</div>
+    <h2 class="sec-title reveal">About <span class="g-text">Me</span></h2>
+
+    <div class="about-layout">
+      <div class="about-bio glass reveal">
+        <div class="bio-header">
+          <div class="bio-avatar"><i class="fas fa-user-tie"></i></div>
+          <div>
+            <h3>Inam Khan</h3>
+            <p class="bio-role">CS Engineer · Full-Stack Dev · ML Practitioner</p>
+          </div>
         </div>
-        <div class="scroll-indicator">
-            <span></span>
+        <p>I'm a <strong>B.Tech Computer Science student</strong> at Lovely Professional University who obsesses over building things that work, look great, and ship on time. My work spans backend systems with Django, responsive frontends, and production-ready ML pipelines.</p>
+        <p>I believe great software is born at the crossroads of <strong>clean code</strong>, smart design, and real-world problem solving. When I'm not coding, I'm grinding through DSA challenges or reverse-engineering how modern tools work.</p>
+        <div class="bio-tags">
+          <span>Clean Architecture</span><span>Security-First</span><span>Performance</span><span>Problem-Solving</span>
         </div>
-    </section>
+      </div>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>
-                        I'm a passionate developer with expertise in building full-stack web applications and implementing machine learning solutions. With a strong foundation in computer science from Lovely Professional University, I combine technical excellence with creative problem-solving to deliver impactful projects.
-                    </p>
-                    <p>
-                        My journey spans across multiple technologies - from backend development with Django to frontend responsiveness with Tailwind CSS, and data science with Python. I'm committed to continuous learning and staying updated with the latest industry trends.
-                    </p>
-                    <div class="stats">
-                        <div class="stat-card">
-                            <h3>5+</h3>
-                            <p>Major Projects</p>
-                        </div>
-                        <div class="stat-card">
-                            <h3>4</h3>
-                            <p>Certifications</p>
-                        </div>
-                        <div class="stat-card">
-                            <h3>100%</h3>
-                            <p>Dedication</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-highlights">
-                    <div class="highlight-card">
-                        <div class="card-icon">
-                            <i class="fas fa-code"></i>
-                        </div>
-                        <h3>Web Development</h3>
-                        <p>Full-stack applications with Django, JavaScript, and modern UI frameworks</p>
-                    </div>
-                    <div class="highlight-card">
-                        <div class="card-icon">
-                            <i class="fas fa-brain"></i>
-                        </div>
-                        <h3>Machine Learning</h3>
-                        <p>Data analysis and predictive modeling with scikit-learn and Python</p>
-                    </div>
-                    <div class="highlight-card">
-                        <div class="card-icon">
-                            <i class="fas fa-database"></i>
-                        </div>
-                        <h3>Database Design</h3>
-                        <p>Efficient schema design and optimization with MySQL</p>
-                    </div>
-                </div>
+      <div class="stats-wrap reveal">
+        <div class="stat-card sc1">
+          <div class="sc-icon"><i class="fas fa-code"></i></div>
+          <div class="sc-num" data-target="5">0</div>
+          <div class="sc-suffix">+</div>
+          <div class="sc-label">Projects Shipped</div>
+        </div>
+        <div class="stat-card sc2">
+          <div class="sc-icon"><i class="fas fa-award"></i></div>
+          <div class="sc-num" data-target="4">0</div>
+          <div class="sc-suffix">+</div>
+          <div class="sc-label">Certifications</div>
+        </div>
+        <div class="stat-card sc3">
+          <div class="sc-icon"><i class="fas fa-fire"></i></div>
+          <div class="sc-num" data-target="1300">0</div>
+          <div class="sc-suffix">+</div>
+          <div class="sc-label">Code Challenges</div>
+        </div>
+        <div class="stat-card sc4">
+          <div class="sc-icon"><i class="fas fa-rupee-sign"></i></div>
+          <div class="sc-num" data-target="10">0</div>
+          <div class="sc-suffix">k</div>
+          <div class="sc-label">Stipend Earned</div>
+        </div>
+      </div>
+
+      <div class="services reveal">
+        <div class="service-card glass">
+          <div class="svc-num">01</div>
+          <div class="svc-icon"><i class="fas fa-layer-group"></i></div>
+          <h4>Full Stack Development</h4>
+          <p>End-to-end web apps from DB schema to pixel-perfect UI, deployed and secured.</p>
+        </div>
+        <div class="service-card glass">
+          <div class="svc-num">02</div>
+          <div class="svc-icon"><i class="fas fa-brain"></i></div>
+          <h4>ML Engineering</h4>
+          <p>Complete ML pipelines — feature engineering, model selection, cross-validation, Streamlit deployment.</p>
+        </div>
+        <div class="service-card glass">
+          <div class="svc-num">03</div>
+          <div class="svc-icon"><i class="fas fa-shield-halved"></i></div>
+          <h4>Secure Backend</h4>
+          <p>CSRF protection, session auth, RBAC, ORM-based queries that resist injection.</p>
+        </div>
+        <div class="service-card glass">
+          <div class="svc-num">04</div>
+          <div class="svc-icon"><i class="fas fa-chart-bar"></i></div>
+          <h4>Data Analysis</h4>
+          <p>Pandas, Seaborn, Power BI — turning raw tables into clear, actionable insights.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░░░░░░░░░░░  SKILLS  ░░░░░░░░░░░░ -->
+<section id="skills" class="section skills">
+  <div class="container">
+    <div class="sec-tag reveal">MY TOOLKIT</div>
+    <h2 class="sec-title reveal">Skills &amp; <span class="g-text">Tech Stack</span></h2>
+
+    <div class="skills-grid">
+      <!-- Languages -->
+      <div class="skill-panel glass reveal">
+        <div class="sp-head"><i class="fas fa-code"></i> Languages</div>
+        <div class="bar-list">
+          <div class="bar-row" data-pct="90" data-color="#f59e0b">
+            <div class="br-meta"><span>Python</span><span class="br-pct">90%</span></div>
+            <div class="br-track"><div class="br-fill"></div></div>
+          </div>
+          <div class="bar-row" data-pct="82" data-color="#3b82f6">
+            <div class="br-meta"><span>JavaScript</span><span class="br-pct">82%</span></div>
+            <div class="br-track"><div class="br-fill"></div></div>
+          </div>
+          <div class="bar-row" data-pct="78" data-color="#ef4444">
+            <div class="br-meta"><span>Java</span><span class="br-pct">78%</span></div>
+            <div class="br-track"><div class="br-fill"></div></div>
+          </div>
+          <div class="bar-row" data-pct="75" data-color="#8b5cf6">
+            <div class="br-meta"><span>C++</span><span class="br-pct">75%</span></div>
+            <div class="br-track"><div class="br-fill"></div></div>
+          </div>
+          <div class="bar-row" data-pct="70" data-color="#14b8a6">
+            <div class="br-meta"><span>C</span><span class="br-pct">70%</span></div>
+            <div class="br-track"><div class="br-fill"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Web -->
+      <div class="skill-panel glass reveal">
+        <div class="sp-head"><i class="fas fa-globe"></i> Web &amp; Frameworks</div>
+        <div class="bar-list">
+          <div class="bar-row" data-pct="92" data-color="#f97316">
+            <div class="br-meta"><span>HTML &amp; CSS</span><span class="br-pct">92%</span></div>
+            <div class="br-track"><div class="br-fill"></div></div>
+          </div>
+          <div class="bar-row" data-pct="88" data-color="#06b6d4">
+            <div class="br-meta"><span>Tailwind CSS</span><span class="br-pct">88%</span></div>
+            <div class="br-track"><div class="br-fill"></div></div>
+          </div>
+          <div class="bar-row" data-pct="85" data-color="#10b981">
+            <div class="br-meta"><span>Django</span><span class="br-pct">85%</span></div>
+            <div class="br-track"><div class="br-fill"></div></div>
+          </div>
+          <div class="bar-row" data-pct="80" data-color="#6366f1">
+            <div class="br-meta"><span>REST APIs</span><span class="br-pct">80%</span></div>
+            <div class="br-track"><div class="br-fill"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ML -->
+      <div class="skill-panel glass reveal">
+        <div class="sp-head"><i class="fas fa-robot"></i> Data Science &amp; ML</div>
+        <div class="bar-list">
+          <div class="bar-row" data-pct="88" data-color="#6366f1">
+            <div class="br-meta"><span>Pandas</span><span class="br-pct">88%</span></div>
+            <div class="br-track"><div class="br-fill"></div></div>
+          </div>
+          <div class="bar-row" data-pct="80" data-color="#ec4899">
+            <div class="br-meta"><span>Scikit-learn</span><span class="br-pct">80%</span></div>
+            <div class="br-track"><div class="br-fill"></div></div>
+          </div>
+          <div class="bar-row" data-pct="75" data-color="#14b8a6">
+            <div class="br-meta"><span>NumPy / Seaborn</span><span class="br-pct">75%</span></div>
+            <div class="br-track"><div class="br-fill"></div></div>
+          </div>
+          <div class="bar-row" data-pct="72" data-color="#f43f5e">
+            <div class="br-meta"><span>Streamlit</span><span class="br-pct">72%</span></div>
+            <div class="br-track"><div class="br-fill"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tools + Soft -->
+      <div class="skill-panel glass reveal tags-panel">
+        <div class="sp-head"><i class="fas fa-tools"></i> Tools &amp; Platforms</div>
+        <div class="tag-cloud">
+          <span class="tag t-blue"><i class="fas fa-database"></i> MySQL</span>
+          <span class="tag t-green"><i class="fas fa-chart-bar"></i> Power BI</span>
+          <span class="tag t-orange"><i class="fab fa-git-alt"></i> Git</span>
+          <span class="tag t-purple"><i class="fab fa-github"></i> GitHub</span>
+          <span class="tag t-teal"><i class="fas fa-table"></i> Excel</span>
+          <span class="tag t-red"><i class="fas fa-stream"></i> Streamlit</span>
+        </div>
+        <div class="sp-divider"></div>
+        <div class="sp-head"><i class="fas fa-user-tie"></i> Soft Skills</div>
+        <div class="tag-cloud">
+          <span class="tag t-soft"><i class="fas fa-lightbulb"></i> Problem-Solving</span>
+          <span class="tag t-soft"><i class="fas fa-users"></i> Leadership</span>
+          <span class="tag t-soft"><i class="fas fa-clock"></i> Time Management</span>
+          <span class="tag t-soft"><i class="fas fa-sync-alt"></i> Adaptability</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░░░░░░░░░░░  PROJECTS  ░░░░░░░░░░░░ -->
+<section id="projects" class="section projects">
+  <div class="container">
+    <div class="sec-tag reveal">MY WORK</div>
+    <h2 class="sec-title reveal">Featured <span class="g-text">Projects</span></h2>
+
+    <div class="proj-grid">
+
+      <!-- Project 1 -->
+      <div class="proj-card glass reveal">
+        <div class="proj-top">
+          <div class="proj-icon pi-1"><i class="fas fa-utensils"></i></div>
+          <div class="proj-links">
+            <a href="https://github.com/inam0980" target="_blank" class="proj-link-btn magnetic"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
+        <div class="proj-tag-date">Oct 2025 – Nov 2025</div>
+        <h3 class="proj-title">Restaurant Management System</h3>
+        <p class="proj-desc">Production-ready web system covering the complete restaurant workflow — menu control, order management, billing, and multi-role authentication.</p>
+        <ul class="proj-feats">
+          <li><i class="fas fa-check"></i> Session-based auth &amp; role-level access control (admin / staff)</li>
+          <li><i class="fas fa-check"></i> Structured MySQL schema with Django ORM for high-performance queries</li>
+          <li><i class="fas fa-check"></i> RESTful endpoints secured with CSRF protection &amp; input validation</li>
+          <li><i class="fas fa-check"></i> Tailwind-powered responsive UI across all device sizes</li>
+        </ul>
+        <div class="proj-stack">
+          <span>Django</span><span>MySQL</span><span>Tailwind</span><span>JavaScript</span>
+        </div>
+      </div>
+
+      <!-- Project 2 – Featured -->
+      <div class="proj-card glass featured reveal">
+        <div class="feat-ribbon">&#11088; Featured</div>
+        <div class="proj-top">
+          <div class="proj-icon pi-2"><i class="fas fa-graduation-cap"></i></div>
+          <div class="proj-links">
+            <a href="https://github.com/inam0980" target="_blank" class="proj-link-btn magnetic"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
+        <div class="proj-tag-date">Desktop Application</div>
+        <h3 class="proj-title">Student Record Management</h3>
+        <p class="proj-desc">Full-featured desktop academic records system with an interactive Swing dashboard, efficient CRUD operations, and secure persistent data storage.</p>
+        <ul class="proj-feats">
+          <li><i class="fas fa-check"></i> Swing-powered GUI with interactive dashboard</li>
+          <li><i class="fas fa-check"></i> Optimised data structures for fast search &amp; updates</li>
+          <li><i class="fas fa-check"></i> Persistent file I/O with exception handling for data integrity</li>
+          <li><i class="fas fa-check"></i> OOP architecture for maintainability &amp; scalability</li>
+        </ul>
+        <div class="proj-stack">
+          <span>Java</span><span>Swing</span><span>OOP</span><span>File I/O</span>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="proj-card glass reveal">
+        <div class="proj-top">
+          <div class="proj-icon pi-3"><i class="fas fa-laptop-code"></i></div>
+          <div class="proj-links">
+            <a href="https://github.com/inam0980" target="_blank" class="proj-link-btn magnetic"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
+        <div class="proj-tag-date">ML Project</div>
+        <h3 class="proj-title">Laptop Price Predictor</h3>
+        <p class="proj-desc">End-to-end ML pipeline from raw data preprocessing to live Streamlit deployment — predicts laptop prices from hardware specifications in real time.</p>
+        <ul class="proj-feats">
+          <li><i class="fas fa-check"></i> Feature engineering improving prediction reliability</li>
+          <li><i class="fas fa-check"></i> Multi-model evaluation with performance-based selection</li>
+          <li><i class="fas fa-check"></i> Cross-validation &amp; train-test split to minimise overfitting</li>
+          <li><i class="fas fa-check"></i> Interactive Streamlit interface for real-time estimates</li>
+        </ul>
+        <div class="proj-stack">
+          <span>Python</span><span>Scikit-learn</span><span>Pandas</span><span>Streamlit</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="proj-cta reveal">
+      <a href="https://github.com/inam0980" target="_blank" class="btn-primary magnetic">
+        <i class="fab fa-github"></i><span>See All Projects on GitHub</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ░░░░░░░░░░░░  EDUCATION  ░░░░░░░░░░░░ -->
+<section id="education" class="section education">
+  <div class="container">
+    <div class="sec-tag reveal">MY BACKGROUND</div>
+    <h2 class="sec-title reveal">Education &amp; <span class="g-text">Achievements</span></h2>
+
+    <div class="edu-layout">
+
+      <!-- Timeline -->
+      <div class="edu-timeline reveal">
+        <h3 class="sub-h">Academic Background</h3>
+
+        <div class="tl">
+          <div class="tl-line"></div>
+
+          <div class="tl-entry active-entry">
+            <div class="tl-node"></div>
+            <div class="tl-body glass">
+              <span class="tl-period">Aug 2023 – Present</span>
+              <h4>B.Tech — Computer Science &amp; Engineering</h4>
+              <p class="tl-place"><i class="fas fa-university"></i> Lovely Professional University, Punjab</p>
+              <div class="tl-grade-pill">CGPA: 7.60</div>
             </div>
-        </div>
-    </section>
+          </div>
 
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
-        <div class="container">
-            <h2 class="section-title">Skills & Expertise</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Languages</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">C++</span>
-                        <span class="skill-tag">Java</span>
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">JavaScript</span>
-                        <span class="skill-tag">C</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>Web Technologies</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">HTML & CSS</span>
-                        <span class="skill-tag">Django</span>
-                        <span class="skill-tag">Tailwind CSS</span>
-                        <span class="skill-tag">RESTful APIs</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>Data Science & ML</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Pandas</span>
-                        <span class="skill-tag">Scikit-learn</span>
-                        <span class="skill-tag">NumPy</span>
-                        <span class="skill-tag">Seaborn</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>Tools & Platforms</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">MySQL</span>
-                        <span class="skill-tag">Power BI</span>
-                        <span class="skill-tag">Streamlit</span>
-                        <span class="skill-tag">Git</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>Soft Skills</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Problem-Solving</span>
-                        <span class="skill-tag">Leadership</span>
-                        <span class="skill-tag">Communication</span>
-                        <span class="skill-tag">Adaptability</span>
-                    </div>
-                </div>
+          <div class="tl-entry">
+            <div class="tl-node"></div>
+            <div class="tl-body glass">
+              <span class="tl-period">Jun 2022 – Mar 2023</span>
+              <h4>Intermediate (Class XII)</h4>
+              <p class="tl-place"><i class="fas fa-school"></i> U.S.S College, Siwan, Bihar</p>
+              <div class="tl-grade-pill">63%</div>
             </div>
-        </div>
-    </section>
+          </div>
 
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
-            <div class="projects-grid">
-                <!-- Project 1 -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-placeholder">
-                            <i class="fas fa-utensils"></i>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Restaurant Management System</h3>
-                        <p class="project-date">Oct 2025 – Nov 2025</p>
-                        <p class="project-description">
-                            A production-ready restaurant system handling menu control, order workflow, billing, and authentication with secure data management.
-                        </p>
-                        <ul class="project-features">
-                            <li>Session-based authentication & role-level access control</li>
-                            <li>Structured MySQL schema with Django ORM</li>
-                            <li>Responsive UI with Tailwind CSS</li>
-                            <li>RESTful APIs with CSRF protection</li>
-                        </ul>
-                        <div class="project-tech">
-                            <span class="tech-badge">Django</span>
-                            <span class="tech-badge">MySQL</span>
-                            <span class="tech-badge">Tailwind CSS</span>
-                            <span class="tech-badge">JavaScript</span>
-                        </div>
-                        <a href="https://github.com/inam0980" target="_blank" class="project-link">
-                            View on GitHub <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Project 2 -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-placeholder">
-                            <i class="fas fa-book"></i>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Student Record Management System</h3>
-                        <p class="project-date">Desktop Application</p>
-                        <p class="project-description">
-                            A desktop-based academic records solution with interactive dashboard for efficient CRUD workflows and secure data retention.
-                        </p>
-                        <ul class="project-features">
-                            <li>Swing-powered interactive dashboard</li>
-                            <li>Optimized data structures for fast search & updates</li>
-                            <li>Persistent storage mechanism</li>
-                            <li>Comprehensive exception handling</li>
-                        </ul>
-                        <div class="project-tech">
-                            <span class="tech-badge">Java</span>
-                            <span class="tech-badge">Swing</span>
-                            <span class="tech-badge">OOP</span>
-                            <span class="tech-badge">File Handling</span>
-                        </div>
-                        <a href="https://github.com/inam0980" target="_blank" class="project-link">
-                            View on GitHub <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Project 3 -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-placeholder">
-                            <i class="fas fa-laptop"></i>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Laptop Price Predictor</h3>
-                        <p class="project-date">ML Project</p>
-                        <p class="project-description">
-                            An end-to-end machine learning pipeline with interactive Streamlit interface for real-time specification-based price predictions.
-                        </p>
-                        <ul class="project-features">
-                            <li>Complete ML pipeline from preprocessing to deployment</li>
-                            <li>Advanced feature engineering techniques</li>
-                            <li>Multiple model evaluation & optimization</li>
-                            <li>Cross-validation for reduced overfitting</li>
-                        </ul>
-                        <div class="project-tech">
-                            <span class="tech-badge">Python</span>
-                            <span class="tech-badge">Scikit-learn</span>
-                            <span class="tech-badge">Pandas</span>
-                            <span class="tech-badge">Streamlit</span>
-                        </div>
-                        <a href="https://github.com/inam0980" target="_blank" class="project-link">
-                            View on GitHub <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
+          <div class="tl-entry">
+            <div class="tl-node"></div>
+            <div class="tl-body glass">
+              <span class="tl-period">Apr 2020 – Mar 2021</span>
+              <h4>Matriculation (Class X)</h4>
+              <p class="tl-place"><i class="fas fa-school"></i> Emmanuel Mission High School, Punjab</p>
+              <div class="tl-grade-pill">73%</div>
             </div>
+          </div>
         </div>
-    </section>
+      </div>
 
-    <!-- Education Section -->
-    <section id="education" class="education">
-        <div class="container">
-            <h2 class="section-title">Education & Certifications</h2>
-            <div class="education-content">
-                <div class="education-list">
-                    <div class="education-item">
-                        <div class="education-icon">
-                            <i class="fas fa-graduation-cap"></i>
-                        </div>
-                        <div class="education-details">
-                            <h3>Bachelor of Technology - Computer Science & Engineering</h3>
-                            <p class="education-school">Lovely Professional University</p>
-                            <p class="education-period">Aug 2023 - Present</p>
-                            <p class="education-grade">CGPA: 7.60</p>
-                        </div>
-                    </div>
-
-                    <div class="education-item">
-                        <div class="education-icon">
-                            <i class="fas fa-book"></i>
-                        </div>
-                        <div class="education-details">
-                            <h3>Intermediate</h3>
-                            <p class="education-school">U.S.S College Siwan, Bihar</p>
-                            <p class="education-period">Jun 2022 - Mar 2023</p>
-                            <p class="education-grade">Percentage: 63%</p>
-                        </div>
-                    </div>
-
-                    <div class="education-item">
-                        <div class="education-icon">
-                            <i class="fas fa-school"></i>
-                        </div>
-                        <div class="education-details">
-                            <h3>Matriculation</h3>
-                            <p class="education-school">Emmanuel Mission High School, Punjab</p>
-                            <p class="education-period">Apr 2020 - Mar 2021</p>
-                            <p class="education-grade">Percentage: 73%</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="certifications">
-                    <h3 class="cert-title">Certifications & Achievements</h3>
-                    <div class="cert-grid">
-                        <div class="cert-card">
-                            <div class="cert-icon">
-                                <i class="fas fa-cloud"></i>
-                            </div>
-                            <h4>Cloud Computing</h4>
-                            <p>NPTEL</p>
-                        </div>
-                        <div class="cert-card">
-                            <div class="cert-icon">
-                                <i class="fas fa-google"></i>
-                            </div>
-                            <h4>Bits & Bytes</h4>
-                            <p>Google / Coursera</p>
-                        </div>
-                        <div class="cert-card">
-                            <div class="cert-icon">
-                                <i class="fas fa-code"></i>
-                            </div>
-                            <h4>C Programming</h4>
-                            <p>CSE Pathshala</p>
-                        </div>
-                        <div class="cert-card">
-                            <div class="cert-icon">
-                                <i class="fas fa-responsive"></i>
-                            </div>
-                            <h4>Responsive Web Design</h4>
-                            <p>FreeCodeCamp - 1300+ Challenges</p>
-                        </div>
-                    </div>
-                    <div class="achievements">
-                        <h4 class="achievement-title">Key Achievements</h4>
-                        <ul>
-                            <li>
-                                <strong>₹10,000 Stipend:</strong> Developed full-stack web application for Le Prestige Mall with secure user management
-                            </li>
-                            <li>
-                                <strong>Data Structures Training:</strong> Completed intensive training on DSA at Lovely Professional University
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+      <!-- Certs -->
+      <div class="certs-col reveal">
+        <h3 class="sub-h">Certifications</h3>
+        <div class="cert-cards">
+          <div class="cert-card glass">
+            <div class="cc-icon bg-blue"><i class="fas fa-cloud"></i></div>
+            <div class="cc-info">
+              <h4>Cloud Computing</h4>
+              <span>NPTEL &middot; Jun – Jul 2025</span>
             </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">Let's Connect</h2>
-            <p class="contact-subtitle">Feel free to reach out for collaborations or just a friendly hello</p>
-            <div class="contact-content">
-                <div class="contact-cards">
-                    <a href="mailto:inamwick01@gmail.com" class="contact-card">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <h3>Email</h3>
-                        <p>inamwick01@gmail.com</p>
-                    </a>
-                    <a href="https://www.linkedin.com/in/inam-khan1/" target="_blank" class="contact-card">
-                        <div class="contact-icon">
-                            <i class="fab fa-linkedin"></i>
-                        </div>
-                        <h3>LinkedIn</h3>
-                        <p>Connect with me</p>
-                    </a>
-                    <a href="https://github.com/inam0980" target="_blank" class="contact-card">
-                        <div class="contact-icon">
-                            <i class="fab fa-github"></i>
-                        </div>
-                        <h3>GitHub</h3>
-                        <p>Check my repositories</p>
-                    </a>
-                    <a href="tel:+918292931569" class="contact-card">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <h3>Phone</h3>
-                        <p>+91-8292931569</p>
-                    </a>
-                </div>
+            <span class="cc-badge">NPTEL</span>
+          </div>
+          <div class="cert-card glass">
+            <div class="cc-icon bg-green"><i class="fab fa-google"></i></div>
+            <div class="cc-info">
+              <h4>Bits &amp; Bytes of Networking</h4>
+              <span>Google / Coursera &middot; Oct 2024</span>
             </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 Inam Khan. All rights reserved.</p>
-            <div class="footer-social">
-                <a href="https://www.linkedin.com/in/inam-khan1/" target="_blank">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="https://github.com/inam0980" target="_blank">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="mailto:inamwick01@gmail.com">
-                    <i class="fas fa-envelope"></i>
-                </a>
+            <span class="cc-badge">Google</span>
+          </div>
+          <div class="cert-card glass">
+            <div class="cc-icon bg-orange"><i class="fas fa-code"></i></div>
+            <div class="cc-info">
+              <h4>C Programming</h4>
+              <span>CSE Pathshala &middot; Sep 2024</span>
             </div>
+            <span class="cc-badge">CSE</span>
+          </div>
+          <div class="cert-card glass">
+            <div class="cc-icon bg-pink"><i class="fas fa-mobile-screen"></i></div>
+            <div class="cc-info">
+              <h4>Responsive Web Design</h4>
+              <span>freeCodeCamp &middot; 1300+ Challenges</span>
+            </div>
+            <span class="cc-badge">fCC</span>
+          </div>
+          <div class="cert-card glass">
+            <div class="cc-icon bg-purple"><i class="fas fa-sitemap"></i></div>
+            <div class="cc-info">
+              <h4>Fundamentals of Data Structures</h4>
+              <span>LPU &middot; May – Jun 2025</span>
+            </div>
+            <span class="cc-badge">LPU</span>
+          </div>
         </div>
-    </footer>
 
-    <script src="script.js"></script>
+        <h3 class="sub-h" style="margin-top:2.5rem">Achievements</h3>
+        <div class="ach-list">
+          <div class="ach-item glass">
+            <div class="ach-emoji">&#127942;</div>
+            <div>
+              <h4>&#8377;10,000 Stipend Award</h4>
+              <p>Received for developing a production full-stack web application for <strong>Le Prestige Mall</strong> with secure user management, authentication, and reliable delivery.</p>
+            </div>
+          </div>
+          <div class="ach-item glass">
+            <div class="ach-emoji">&#127919;</div>
+            <div>
+              <h4>1300+ Coding Challenges</h4>
+              <p>Earned the <strong>Responsive Web Design</strong> certification on freeCodeCamp by completing 1300+ hands-on front-end challenges.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ░░░░░░░░░░░░  CONTACT  ░░░░░░░░░░░░ -->
+<section id="contact" class="section contact">
+  <div class="container">
+    <div class="sec-tag reveal">GET IN TOUCH</div>
+    <h2 class="sec-title reveal">Let's <span class="g-text">Connect</span></h2>
+    <p class="contact-lead reveal">Open to full-time roles, freelance projects, and exciting collaborations.<br>Let's build something remarkable together.</p>
+
+    <div class="contact-layout">
+
+      <div class="contact-left reveal">
+        <div class="contact-links">
+          <a href="mailto:inamwick01@gmail.com" class="cl-item glass magnetic">
+            <div class="cl-icon bg-blue"><i class="fas fa-envelope"></i></div>
+            <div class="cl-text"><h4>Email</h4><span>inamwick01@gmail.com</span></div>
+            <i class="fas fa-arrow-right cl-arrow"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/inam-khan1/" target="_blank" class="cl-item glass magnetic">
+            <div class="cl-icon bg-linkedin"><i class="fab fa-linkedin-in"></i></div>
+            <div class="cl-text"><h4>LinkedIn</h4><span>linkedin.com/in/inam-khan1</span></div>
+            <i class="fas fa-arrow-right cl-arrow"></i>
+          </a>
+          <a href="https://github.com/inam0980" target="_blank" class="cl-item glass magnetic">
+            <div class="cl-icon bg-dark"><i class="fab fa-github"></i></div>
+            <div class="cl-text"><h4>GitHub</h4><span>github.com/inam0980</span></div>
+            <i class="fas fa-arrow-right cl-arrow"></i>
+          </a>
+          <a href="tel:+918292931569" class="cl-item glass magnetic">
+            <div class="cl-icon bg-green"><i class="fas fa-phone"></i></div>
+            <div class="cl-text"><h4>Phone</h4><span>+91-8292931569</span></div>
+            <i class="fas fa-arrow-right cl-arrow"></i>
+          </a>
+        </div>
+
+        <div class="contact-status glass">
+          <div class="cs-dot"></div>
+          <div>
+            <p class="cs-title">Currently open to work</p>
+            <p class="cs-sub">Internships, full-time &amp; freelance</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-right reveal">
+        <form class="cf glass" id="contactForm" novalidate>
+          <h3>Drop me a message</h3>
+          <div class="cf-row">
+            <div class="cf-field">
+              <label>Your Name <span>*</span></label>
+              <div class="cf-input-wrap">
+                <i class="fas fa-user"></i>
+                <input type="text" id="cfName" placeholder="John Doe" autocomplete="off">
+              </div>
+            </div>
+            <div class="cf-field">
+              <label>Email <span>*</span></label>
+              <div class="cf-input-wrap">
+                <i class="fas fa-envelope"></i>
+                <input type="email" id="cfEmail" placeholder="john@email.com" autocomplete="off">
+              </div>
+            </div>
+          </div>
+          <div class="cf-field">
+            <label>Subject</label>
+            <div class="cf-input-wrap">
+              <i class="fas fa-tag"></i>
+              <input type="text" id="cfSubject" placeholder="Collaboration / Job / Project" autocomplete="off">
+            </div>
+          </div>
+          <div class="cf-field">
+            <label>Message <span>*</span></label>
+            <div class="cf-input-wrap ta">
+              <i class="fas fa-comment"></i>
+              <textarea id="cfMessage" rows="5" placeholder="Tell me about your project or opportunity..."></textarea>
+            </div>
+          </div>
+          <button type="submit" class="cf-submit btn-primary magnetic">
+            <span>Send Message</span><i class="fas fa-paper-plane"></i>
+          </button>
+          <div class="cf-status" id="cfStatus"></div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ░░ FOOTER ░░ -->
+<footer class="footer">
+  <div class="footer-wrap">
+    <div class="ft-logo">
+      <span class="bracket">&lt;</span>IK<span class="bracket">/&gt;</span>
+    </div>
+    <p class="ft-copy">&copy; 2025 Inam Khan &mdash; Crafted with <span class="heart">&#9829;</span>, clean code &amp; lots of coffee.</p>
+    <div class="ft-social">
+      <a href="https://github.com/inam0980" target="_blank" class="magnetic"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/inam-khan1/" target="_blank" class="magnetic"><i class="fab fa-linkedin-in"></i></a>
+      <a href="mailto:inamwick01@gmail.com" class="magnetic"><i class="fas fa-envelope"></i></a>
+    </div>
+  </div>
+</footer>
+
+<button class="back-top" id="backTop" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button>
+
+<script src="script.js"></script>
 </body>
 </html>
