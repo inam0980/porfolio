@@ -2,59 +2,11 @@
    INAM KHAN PORTFOLIO — ADVANCED JS
    ========================================= */
 
-/* ---- SVG gradient defs for preloader ---- */
-document.addEventListener('DOMContentLoaded', () => {
-  const svg = document.querySelector('.pre-logo');
-  if (svg) {
-    const defs = document.createElementNS('http://www.w3.org/2000/svg','defs');
-    defs.innerHTML = `
-      <linearGradient id="pg" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stop-color="#00d4ff"/>
-        <stop offset="50%" stop-color="#00ff9d"/>
-        <stop offset="100%" stop-color="#14b8a6"/>
-      </linearGradient>
-      <linearGradient id="pg2" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stop-color="#00d4ff"/>
-        <stop offset="100%" stop-color="#00ff9d"/>
-      </linearGradient>`;
-    svg.prepend(defs);
-  }
-});
-
-/* ---- PRELOADER ---- */
-const preloader = document.getElementById('preloader');
-const preBar    = document.getElementById('preBarFill');
-const prePct    = document.getElementById('prePercent');
-let pct = 0;
-const pTimer = setInterval(() => {
-  pct += Math.random() * 12 + 4;
-  if (pct >= 100) { pct = 100; clearInterval(pTimer); }
-  preBar.style.width = pct + '%';
-  prePct.textContent = Math.round(pct) + '%';
-}, 80);
-window.addEventListener('load', () => {
-  setTimeout(() => preloader.classList.add('out'), 1800);
-});
-
 /* ---- CURSOR ---- */
 const dot  = document.getElementById('cursorDot');
 const ring = document.getElementById('cursorRing');
-let mx = 0, my = 0, rx = 0, ry = 0;
-
-document.addEventListener('mousemove', e => {
-  mx = e.clientX; my = e.clientY;
-  dot.style.left  = mx + 'px';
-  dot.style.top   = my + 'px';
-});
-(function loopRing(){
-  rx += (mx - rx) * .1; ry += (my - ry) * .1;
-  ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
-  requestAnimationFrame(loopRing);
-})();
-document.querySelectorAll('a,button,.proj-card,.glass,.stat-card').forEach(el => {
-  el.addEventListener('mouseenter', () => ring.classList.add('expand'));
-  el.addEventListener('mouseleave', () => ring.classList.remove('expand'));
-});
+if (dot) dot.style.display = 'none';
+if (ring) ring.style.display = 'none';
 
 /* ---- CANVAS PARTICLES ---- */
 const cvs = document.getElementById('bg-canvas');
@@ -118,7 +70,7 @@ function type(){
   if(del && ci<0){ del=false; pi=(pi+1)%phrases.length; setTimeout(type,350); return; }
   setTimeout(type, del?42:80);
 }
-setTimeout(type,2400);
+setTimeout(type,400);
 
 /* ---- NAVBAR ---- */
 const nav  = document.getElementById('nav');
@@ -217,26 +169,48 @@ const cntObs = new IntersectionObserver(entries=>{
 document.querySelectorAll('.stats-wrap').forEach(w=>cntObs.observe(w));
 
 /* ---- 3D TILT ---- */
-document.querySelectorAll('.proj-card').forEach(card=>{
-  card.addEventListener('mousemove',e=>{
-    const r=card.getBoundingClientRect();
-    const x=((e.clientX-r.left)/r.width-.5)*16;
-    const y=((e.clientY-r.top)/r.height-.5)*-16;
-    card.style.transform=`translateY(-10px) perspective(700px) rotateX(${y}deg) rotateY(${x}deg)`;
-  });
-  card.addEventListener('mouseleave',()=>card.style.transform='');
-});
+/* Disabled: no movement with cursor */
 
 /* ---- MAGNETIC ---- */
-document.querySelectorAll('.magnetic').forEach(el=>{
-  el.addEventListener('mousemove',e=>{
-    const r=el.getBoundingClientRect();
-    const x=(e.clientX-r.left-r.width/2)*0.22;
-    const y=(e.clientY-r.top-r.height/2)*0.22;
-    el.style.transform=`translate(${x}px,${y}px)`;
+/* Disabled: no movement with cursor */
+
+/* ---- CERTIFICATE POPUP ---- */
+const certModal = document.getElementById('certModal');
+const certModalImage = document.getElementById('certModalImage');
+const certModalClose = document.getElementById('certModalClose');
+
+if (certModal && certModalImage) {
+  const closeCertModal = () => {
+    certModal.classList.remove('open');
+    certModal.setAttribute('aria-hidden', 'true');
+    certModalImage.removeAttribute('src');
+    document.body.classList.remove('modal-open');
+  };
+
+  document.querySelectorAll('.cc-proof').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const imgSrc = link.dataset.certSrc || link.getAttribute('href');
+      if (!imgSrc) return;
+      certModalImage.setAttribute('src', imgSrc);
+      certModal.classList.add('open');
+      certModal.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('modal-open');
+    });
   });
-  el.addEventListener('mouseleave',()=>el.style.transform='');
-});
+
+  certModalClose?.addEventListener('click', closeCertModal);
+
+  certModal.addEventListener('click', e => {
+    if (e.target === certModal) closeCertModal();
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && certModal.classList.contains('open')) {
+      closeCertModal();
+    }
+  });
+}
 
 /* ---- CONTACT FORM ---- */
 document.getElementById('contactForm').addEventListener('submit',e=>{

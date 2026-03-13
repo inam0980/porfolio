@@ -21,18 +21,6 @@
 <!-- ░░ PROGRESS BAR ░░ -->
 <div class="scroll-progress" id="scrollProgress"></div>
 
-<!-- ░░ PRELOADER ░░ -->
-<div class="preloader" id="preloader">
-  <div class="pre-content">
-    <svg class="pre-logo" viewBox="0 0 100 100">
-      <circle class="pre-circle" cx="50" cy="50" r="45"/>
-      <text class="pre-text" x="50" y="63" text-anchor="middle">IK</text>
-    </svg>
-    <div class="pre-bar"><div class="pre-bar-fill" id="preBarFill"></div></div>
-    <span class="pre-percent" id="prePercent">0%</span>
-  </div>
-</div>
-
 <!-- ░░ CANVAS ░░ -->
 <canvas id="bg-canvas"></canvas>
 
@@ -498,6 +486,9 @@
           <h4>Cloud Computing</h4>
           <span>NPTEL &middot; Jun – Jul 2025</span>
         </div>
+        <button type="button" class="cc-proof" data-cert-src="certificate/image%20copy%202.png" aria-label="View Cloud Computing certificate">
+          <img src="certificate/image%20copy%202.png" alt="Cloud Computing certificate" class="cc-cert-img">
+        </button>
         <span class="cc-badge">NPTEL</span>
       </div>
       <div class="cert-card glass">
@@ -506,6 +497,9 @@
           <h4>Bits &amp; Bytes of Networking</h4>
           <span>Google / Coursera &middot; Oct 2024</span>
         </div>
+        <button type="button" class="cc-proof" data-cert-src="certificate/image%20copy.png" aria-label="View Bits and Bytes certificate">
+          <img src="certificate/image%20copy.png" alt="Bits and Bytes of Networking certificate" class="cc-cert-img">
+        </button>
         <span class="cc-badge">Google</span>
       </div>
       <div class="cert-card glass">
@@ -514,6 +508,9 @@
           <h4>C Programming</h4>
           <span>CSE Pathshala &middot; Sep 2024</span>
         </div>
+        <button type="button" class="cc-proof" data-cert-src="certificate/image.png" aria-label="View C Programming certificate">
+          <img src="certificate/image.png" alt="C Programming Certificate from CSE Pathshala" class="cc-cert-img">
+        </button>
         <span class="cc-badge">CSE</span>
       </div>
       <div class="cert-card glass">
@@ -522,6 +519,9 @@
           <h4>Responsive Web Design</h4>
           <span>freeCodeCamp &middot; 1300+ Challenges</span>
         </div>
+        <button type="button" class="cc-proof" data-cert-src="certificate/image%20copy%203.png" aria-label="View Responsive Web Design certificate">
+          <img src="certificate/image%20copy%203.png" alt="Responsive Web Design certificate" class="cc-cert-img">
+        </button>
         <span class="cc-badge">fCC</span>
       </div>
       <div class="cert-card glass">
@@ -530,6 +530,9 @@
           <h4>Fundamentals of Data Structures</h4>
           <span>LPU &middot; May – Jun 2025</span>
         </div>
+        <button type="button" class="cc-proof" data-cert-src="certificate/image%20copy%204.png" aria-label="View Data Structures certificate">
+          <img src="certificate/image%20copy%204.png" alt="Fundamentals of Data Structures certificate" class="cc-cert-img">
+        </button>
         <span class="cc-badge">LPU</span>
       </div>
     </div>
@@ -775,6 +778,13 @@
 </footer>
 
 <button class="back-top" id="backTop" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button>
+
+<div class="cert-modal" id="certModal" aria-hidden="true" role="dialog" aria-label="Certificate preview">
+  <button class="cert-modal-close" id="certModalClose" aria-label="Close certificate preview">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <img id="certModalImage" class="cert-modal-image" alt="Certificate preview">
+</div>
 
 <script src="script.js"></script>
 </body>
