@@ -700,6 +700,7 @@ button { font-family:inherit; cursor:pointer; }
 .bg-orange  { background:linear-gradient(135deg,#f97316,#f59e0b); }
 .bg-pink    { background:linear-gradient(135deg,#00ff9d,#f43f5e); }
 .bg-purple  { background:linear-gradient(135deg,#8b5cf6,#00d4ff); }
+.bg-gold    { background:linear-gradient(135deg,#fbbf24,#f59e0b); }
 .bg-linkedin{ background:linear-gradient(135deg,#0ea5e9,#3b82f6); }
 .bg-dark    { background:linear-gradient(135deg,#374151,#111827); }
 .cc-info { flex:1; min-width:0; }
