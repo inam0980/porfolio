@@ -535,31 +535,6 @@ button { font-family:inherit; cursor:pointer; }
 .proj-card:hover .proj-img img {
   transform: scale(1.08);
 }
-/* Placeholder tile for projects that have no screenshot yet */
-.proj-img.ph {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-.proj-img.ph::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
-  background-size: 26px 26px;
-}
-.proj-img.ph i {
-  font-size: 3.1rem;
-  color: rgba(255,255,255,.9);
-  position: relative;
-  z-index: 1;
-  transition: transform .5s cubic-bezier(.4, 0, .2, 1);
-}
-.proj-card:hover .proj-img.ph i { transform: scale(1.12); }
-.ph-agent { background: linear-gradient(135deg, #4c1d95, #0e7490); }
 .proj-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.75rem; margin-bottom:3rem; }
 .proj-card {
   padding:2rem; display:flex; flex-direction:column; gap:.9rem;
@@ -726,7 +701,6 @@ button { font-family:inherit; cursor:pointer; }
 .bg-pink    { background:linear-gradient(135deg,#00ff9d,#f43f5e); }
 .bg-purple  { background:linear-gradient(135deg,#8b5cf6,#00d4ff); }
 .bg-gold    { background:linear-gradient(135deg,#fbbf24,#f59e0b); }
-.bg-red     { background:linear-gradient(135deg,#dc2626,#f97316); }
 .bg-linkedin{ background:linear-gradient(135deg,#0ea5e9,#3b82f6); }
 .bg-dark    { background:linear-gradient(135deg,#374151,#111827); }
 .cc-info { flex:1; min-width:0; }

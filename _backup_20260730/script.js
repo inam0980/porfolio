@@ -60,7 +60,7 @@ function drawLines(){
 })();
 
 /* ---- TYPEWRITER ---- */
-const phrases = ['production Django apps.','multi-step LLM agents.','semantic search engines.','AI-powered platforms.','REST APIs that scale.','data-driven decisions.'];
+const phrases = ['actionable insights.','data stories.','smart dashboards.','predictive models.','clean visualisations.','data-driven decisions.'];
 let pi=0,ci=0,del=false;
 const tw = document.getElementById('twWord');
 function type(){
