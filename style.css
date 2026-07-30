@@ -671,11 +671,12 @@ button { font-family:inherit; cursor:pointer; }
 .certifications { background: var(--bg); }
 .certs-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  /* minmax(0,1fr) so long cert titles can't blow the tracks past the container */
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.25rem;
 }
 @media(max-width: 1024px) {
-  .certs-grid { grid-template-columns: repeat(2, 1fr); }
+  .certs-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media(max-width: 640px) {
   .certs-grid { grid-template-columns: 1fr; }
@@ -730,7 +731,7 @@ button { font-family:inherit; cursor:pointer; }
 .bg-linkedin{ background:linear-gradient(135deg,#0ea5e9,#3b82f6); }
 .bg-dark    { background:linear-gradient(135deg,#374151,#111827); }
 .cc-info { flex:1; min-width:0; }
-.cc-info h4 { font-size:.9rem; font-weight:700; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.cc-info h4 { font-size:.9rem; font-weight:700; overflow-wrap:anywhere; }
 .cc-info span { font-size:.76rem; color:var(--muted); font-family:var(--mono); }
 .cc-badge {
   padding:.2rem .55rem; background:rgba(0,212,255,.08);

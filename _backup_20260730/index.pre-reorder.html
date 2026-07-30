@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<style>.hero{height:auto!important;min-height:0!important;padding:5rem 0 3rem!important}.hero-scroll,#bg-canvas{display:none!important}</style></head>
+</head>
 <body>
 
 <!-- ░░ NOISE OVERLAY ░░ -->
@@ -638,6 +638,9 @@
           <h4>Oracle Cloud Infrastructure</h4>
           <span>Oracle &middot; Mar 2026</span>
         </div>
+        <button type="button" class="cc-proof" data-cert-src="certificate/Ai.png" aria-label="View Oracle Cloud Infrastructure certificate">
+          <img src="certificate/Ai.png" alt="Oracle Cloud Infrastructure certificate" class="cc-cert-img">
+        </button>
         <span class="cc-badge">Oracle</span>
       </div>
       <div class="cert-card glass">
@@ -646,6 +649,9 @@
           <h4>Oracle Data Platform</h4>
           <span>Oracle &middot; Dec 2025</span>
         </div>
+        <button type="button" class="cc-proof" data-cert-src="certificate/data.png" aria-label="View Oracle Data Platform certificate">
+          <img src="certificate/data.png" alt="Oracle Data Platform certificate" class="cc-cert-img">
+        </button>
         <span class="cc-badge">Oracle</span>
       </div>
       <div class="cert-card glass">
@@ -959,23 +965,5 @@
 </div>
 
 <script src="script.js"></script>
-<script>
-window.addEventListener('load', function(){
-  setTimeout(function(){
-    var vw = document.documentElement.clientWidth;
-    var bad = [];
-    document.querySelectorAll('*').forEach(function(el){
-      var r = el.getBoundingClientRect();
-      if (r.right > vw + 1 || r.left < -1) {
-        bad.push(el.tagName + '.' + (el.className||'').toString().slice(0,40) + ' [L'+Math.round(r.left)+' R'+Math.round(r.right)+']');
-      }
-    });
-    var pre = document.createElement('pre');
-    pre.id = 'DIAGOUT';
-    pre.textContent = 'VW='+vw+' scrollW='+document.documentElement.scrollWidth+'\n'+bad.slice(0,40).join('\n');
-    document.body.appendChild(pre);
-  }, 600);
-});
-</script>
 </body>
 </html>
